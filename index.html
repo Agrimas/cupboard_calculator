@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body class="bg-dark">
+    <div class="container bg-dark">
+        <h1>Цена шкафа: <span id="PriceCupboard">0</span></h1>
+        <form name="cupboardForm" class="g-3 needs-validation" novalidate>
+            <div class="row">
+                <!-- Размеры шкафа -->
+                <div class="col-md-6 mb-2 border p-2 rounded">
+                    <h3><b>1</b> Размеры шкафа</h3>
+                    <div class="row">
+                        <!-- Имя пользователя -->
+                        <div class="col-md-4">
+                            <label for="loginInstagram" class="form-label">Имя пользователя</label>
+                            <input type="text" class="form-control" id="loginInstagram" required maxlength="30">
+                            <div class="invalid-feedback">
+                                Обязательное поле
+                            </div>
+                            <div class="valid-feedback">
+                                Все хорошо!
+                            </div>
+                        </div>
+                        <div class="col-12"></div>
+                        <!-- Высота шкафа -->
+                        <div class="col-md-3">
+                            <label for="heightCupboard" class="form-label">Высота</label>
+                            <input type="text" class="form-control" id="heightCupboard" required pattern="[1-9]\d{3}"
+                                maxlength="4" min="999" max="9999">
+                            <div class="invalid-feedback">
+                                от 1000 до 9999
+                            </div>
+                            <div class="valid-feedback">
+                                Все хорошо!
+                            </div>
+                        </div>
+                        <!-- Ширина шкафа -->
+                        <div class="col-md-3">
+                            <label for="widthCupboard" class="form-label">Ширина</label>
+                            <input type="text" class="form-control" id="widthCupboard" required pattern="[1-9]\d{3}"
+                                maxlength="4" min="999" max="9999">
+                            <div class="invalid-feedback">
+                                от 1000 до 9999
+                            </div>
+                            <div class="valid-feedback">
+                                Все хорошо!
+                            </div>
+                        </div>
+                        <!-- Глубина шкафа -->
+                        <div class="col-md-3">
+                            <label for="depthCupboard" class="form-label">Глубина</label>
+                            <input type="text" class="form-control" id="depthCupboard" required
+                                pattern="[2-9][0-9][0-9]$|1000" maxlength="4" min="500" max="9999">
+                            <div class="invalid-feedback">
+                                от 200 до 1000
+                            </div>
+                            <div class="valid-feedback">
+                                Все хорошо!
+                            </div>
+                        </div>
+                        <div class="col-12"></div>
+                        <!-- Отсеков -->
+                        <div class="col-md-3">
+                            <label for="countCompartment" class="form-label">Отсеков</label>
+                            <input type="text" class="form-control" id="countCompartment" required
+                                pattern="[1-9]$|[1-9][0-9]" maxlength="2" min="2" max="99">
+                            <div class="invalid-feedback">
+                                от 1 до 99
+                            </div>
+                            <div class="valid-feedback">
+                                Все хорошо!
+                            </div>
+                        </div>
+                        <!-- Ширина отсека -->
+                        <div class="col-md-3">
+                            <label for="widthCompartment" class="form-label">Ширина отсека</label>
+                            <input tabindex="-1" type="text" class="form-control text-light bg-secondary text-center"
+                                id="widthCompartment" required maxlength="4" min="450" max="1000">
+                            <div class="invalid-feedback">
+                                от 450 до 650
+                            </div>
+                            <div class="valid-feedback">
+                                Все хорошо!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Наполнение -->
+                <div class="col-md-6 mb-2 border p-2 rounded">
+                    <h3><b>2</b> Наполнение</h3>
+                    <div class="row justify-content-around">
+                        <div class="col-3">
+                            Полок
+                            <input type="text" class="form-control" id="countShelf" pattern="\d{1,2}" maxlength="2"
+                                min="0" max="99">
+                            <div class=" valid-feedback">
+                                Все хорошо!
+                            </div>
+                            <div class="invalid-feedback">
+                                Должно быть не менее 1 символа
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            Стоек
+                            <input type="text" class="form-control" name="countSeparation" pattern="\d{1,2}"
+                                maxlength="2" min="0" max="99">
+                            <div class=" valid-feedback">
+                                Все хорошо!
+                            </div>
+                            <div class="invalid-feedback">
+                                Должно быть не менее 1 символа
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            Антресолей
+                            <input type="text" class="form-control" name="countFacadeAndresol" pattern="\d{1,2}"
+                                maxlength="2" min="0" max="99">
+                            <div class="valid-feedback">
+                                Все хорошо!
+                            </div>
+                            <div class="invalid-feedback">
+                                Должно быть не менее 1 символа
+                            </div>
+                        </div>
+                        <h5>Шуфляды</h5>
+                        <div class="col-3">
+                            Шариковые
+                            <input type="text" class="form-control" name="countRollonDrawer" pattern="\d{1,2}"
+                                maxlength="2" min="0" max="99">
+                            <div class=" valid-feedback">
+                                Все хорошо!
+                            </div>
+                            <div class="invalid-feedback">
+                                Должно быть не менее 1 символа
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            Tandem
+                            <input type="text" class="form-control" name="countTandemDrawer" pattern="\d{1,2}"
+                                maxlength="2" min="0" max="99">
+                            <div class=" valid-feedback">
+                                Все хорошо!
+                            </div>
+                            <div class="invalid-feedback">
+                                Должно быть не менее 1 символа
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Двери -->
+                <div class="col-md-6 mb-1 border p-2 rounded" id="doorsBlock">
+                    <h3><b>3</b> Двери</h3>
+                    <fieldset class="row blockBorder mt-1" name="doors" id='doors' type='doors'>
+                        <h4 class="title">Дверь</h4>
+                        <!-- Система открывания -->
+                        <div class="col-md-6">
+                            Система открывания
+                            <select class="form-select" name="openingSystemDoors">
+                                <option value="0" selected>Распашные</option>
+                                <option value="70">Wing Line</option>
+                                <option value="3">Modus OPK без профиля</option>
+                                <option value="3">Modus OPK с профилем</option>
+                                <option value="4">Hettich Top Line L</option>
+                                <option value="5">Hettich Top Line XL</option>
+                            </select>
+                        </div>
+                        <!-- Материал дверей -->
+                        <div class="col-md-6">
+                            Материал
+                            <select class="form-select" name="materialDoors">
+                                <option value="13" selected>ДСП</option>
+                                <option value="55">MDF матовый прямой</option>
+                                <option value="70">MDF глянец прямой</option>
+                                <option value="90">MDF Фрез простой</option>
+                                <option value="110">MDF Фрез средняя</option>
+                                <option value="140">MDF Фрез сложный</option>
+                                <option value="5.5">Z-фасад</option>
+                                <option value="68">Акрил</option>
+                                <option value="52">SupraMat</option>
+                                <option value="135">Шаторсы</option>
+                                <option value="110">Шпон</option>
+                                <option value="41">AGT</option>
+                            </select>
+                        </div>
+                        <!-- Количетсво дверей -->
+                        <div class="col-md-3">
+                            Количество
+                            <input type="text" class="form-control" name="countDoors" value="1" required maxlength="2"
+                                min="1" max="99">
+                            <div class="invalid-feedback"></div>
+                            <div class="valid-feedback">
+                                Все хорошо!
+                            </div>
+                        </div>
+                        <!-- Высота двери -->
+                        <div class="col-md-3">
+                            Высота
+                            <input type="text" class="form-control" name="heightDoors" required maxlength="4" min="999"
+                                max="9999">
+                            <div class="invalid-feedback">Обязательное поле</div>
+                            <div class="valid-feedback">
+                                Все хорошо!
+                            </div>
+                        </div>
+                        <!-- Ширина двери -->
+                        <div class="col-md-3">
+                            Ширина
+                            <input type="text" class="form-control" name="widthDoors" required maxlength="3" min="450"
+                                max="650">
+                            <div class="invalid-feedback"></div>
+                            <div class="valid-feedback">
+                                Все хорошо!
+                            </div>
+
+                        </div>
+                        <!-- Зеркало -->
+                        <div class="col-md-5 miracleDoorsBlock">
+                            Зеркала
+                            <select class="form-select" name="miracleDoors">
+                                <option value="10" selected>Cеребро</option>
+                                <option value="10">Бронза</option>
+                                <option value="15">Графит</option>
+                                <option value="14">Лакобель</option>
+                            </select>
+                        </div>
+                        <!-- Ручки -->
+                        <div class="col-md-5 handlesDoorsBlock">
+                            Ручки
+                            <select class="form-select" name='handles'>
+                                <option value="10" selected>Стандартные</option>
+                                <option value="13">Интегрированные</option>
+                                <option value="7">Tipon</option>
+                            </select>
+                        </div>
+                        <!-- Кнопки -->
+                        <div class="col-12 d-flex justify-content-center align-items-end">
+                            <button type="button" class="btn btn-success btn-doors" name="add">+</button>
+                            <button type="button" class="btn btn-danger btn-doors" name="remove">-</button>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <!-- Дополнительные элементы -->
+                <div class="col-md-6 mb-1 border p-2 rounded" id="additionalElementsBlock">
+                    <h3><b>4</b> Дополнительные элементы</h3>
+                    <div class="row justify-content-center">
+                        <div class="col-10 col-md-5 my-2">
+                            <select class="form-select" name="additionalElements">
+                                <option value="antresol" selected>Антресоль</option>
+                                <option value="builtinTumba">Встроенная тумба</option>
+                                <option value="rail">Рейки</option>
+                                <option value="metalStructures">Металлоконструкция</option>
+                                <option value="mirror">Зеркало</option>
+                                <option value="backlight">Подсветка</option>
+                            </select>
+                        </div>
+                        <div class="col-2 align-self-center">
+                            <button type="button" class="btn btn-success btn-doors"
+                                name="addNewAdditionalElements">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Кнопка -->
+                <div class="col-12 d-flex d-md-block">
+                    <input class="btn btn-primary" type="submit" value="Отправить форму" />
+                    <input class="btn btn-warning mx-md-5" type="reset" value="Очистить форму">
+                </div>
+        </form>
+    </div>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
